@@ -8,24 +8,32 @@
  *Description: Print max prime number
  * Return: void
  **/
-
+/**
+ * main - Finds and prints the largest prime
+ *        factor of the number 612852475143.
+ *
+ * Return: Always 0.
+ */
 int main(void)
 {
-	long int n = 20;
-	long int d;
+	long prime = 612852475143, div;
 
-	while (n % 2 == 0)
+	while (div < (prime / 2))
 	{
-		n = n / 2;
-	}
-
-	for (d = 3; d < sqrt(n); d = d + 2)
-	{
-		while (n % d == 0)
+		if ((prime % 2) == 0)
 		{
-			n = n / d;
+			prime /= 2;
+			continue;
+		}
+
+		for (div = 3; div < (prime / 2); div += 2)
+		{
+			if ((prime % div) == 0)
+				prime /= div;
 		}
 	}
-	printf("%li", n);
+
+	printf("%ld\n", prime);
+
 	return (0);
 }
