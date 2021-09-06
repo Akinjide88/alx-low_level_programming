@@ -8,19 +8,13 @@
  */
 int main(void)
 {
-	char c;
+	int numb;
+	char alphab;
 
-	for (c = '0'; c <= '9'; c++)
-	{
-		putchar(c);
-	}
-
-	for (c = 'a'; c <= 'f'; c++)
-	{
-		putchar(c);
-	}
-
+	for (numb = 48 ; numb <= 57 ; numb++)
+		putchar(numb);
+	for (alphab = 97 ; alphab <= 102 ; alphab++)
+		putchar(alphab);
 	putchar('\n');
-
 	return (0);
 }
