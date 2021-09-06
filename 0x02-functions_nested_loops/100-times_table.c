@@ -1,41 +1,51 @@
 #include "main.h"
 /**
- * times_table - prints the 9 times table
- *
- * Return: 9 times table
- */
-void times_table(void)
+  * print_times_table - Prints a multiplication table up to param
+  * @n: The number to be treated
+  *
+  * Return: Number matrix
+  */
+void print_times_table(int n)
 {
-	int a, b, mult;
+	int x, y, z;
 
-	for (a = 0 ; a <= 9 ; a++)
+	if (n >= 0 && n <= 14)
 	{
-		for (b = 0 ; b <= 9 ; b++)
+		for (x = 0; x <= n; x++)
 		{
-			mult = a * b;
-
-			if (mult <= 9)
+			for (y = 0; y <= n; y++)
 			{
-				if (b != 0)
+				z = x * y;
+				if (z > 99)
 				{
-					_putchar(' ');
+					_putchar(',');
+					_putchar(32);
+					_putchar((z / 100) + '0');
+					_putchar(((z / 10) % 10) + '0');
+					_putchar((z % 10) + '0');
 				}
-				_putchar(mult + '0');
+				else if (z > 9)
+				{
+					_putchar(',');
+					_putchar(32);
+					_putchar(32);
+					_putchar(((z / 10) % 10) + '0');
+					_putchar((z % 10) + '0');
+				}
+				else
+				{
+					if (y != 0)
+					{
+						_putchar(',');
+						_putchar(32);
+						_putchar(32);
+						_putchar(32);
+					}
+					_putchar(z + '0');
+				}
 			}
-			else
-			{
-				_putchar(mult / 10 + '0');
-				_putchar(mult % 10 + '0');
-			}
-			if (b != 9)
-			{
-				_putchar(',');
-				_putchar(' ');
-			}
-			else
-			{
-				_putchar('\n');
-			}
+			_putchar('\n');
 		}
 	}
-}}
+}
+
